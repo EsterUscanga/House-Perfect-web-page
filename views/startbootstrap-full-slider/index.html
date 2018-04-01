@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -8,13 +8,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Full Slider - Start Bootstrap Template</title>
+    <title>House Perfect</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Awesome icons -->
+    <link rel="stylesheet" href="css/web-fonts-with-css/css/fontawesome-all.min.css">
+
     <!-- Custom styles for this template -->
-    <link href="css/full-slider.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
 
   </head>
 
@@ -29,22 +33,42 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="color: black;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">QUIÉNES SOMOS
+              <a class="nav-link"  style="letter-spacing: 3px;" href="#">QUIÉNES SOMOS
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">SERVICIOS</a>
 
+            &nbsp;&nbsp;
+            <li class="pt-1">
+              <span><i class="fa fa-circle" style="font-size:8px;color:darkTurquoise;"></i></span>  
             </li>
+            &nbsp;&nbsp;
+
             <li class="nav-item">
-              <a class="nav-link" href="#">PROYECTOS</a>
+              <a class="nav-link" style="letter-spacing: 3px;" href="#">SERVICIOS</a>
             </li>
+
+            &nbsp;&nbsp;
+            <li class="pt-1">
+              <span><i class="fa fa-circle" style="font-size:8px;color:darkTurquoise;"></i></span>  
+            </li>
+            &nbsp;&nbsp;
+
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACTO</a>
+              <a class="nav-link" style="letter-spacing: 3px;" href="#">PROYECTOS</a>
+            </li>
+
+            &nbsp;&nbsp;
+            <li class="pt-1">
+              <span><i class="fa fa-circle" style="font-size:8px;color:darkTurquoise;"></i></span>  
+            </li>
+            &nbsp;&nbsp;
+
+            <li class="nav-item">
+              <a class="nav-link" style="letter-spacing: 3px;" href="#">CONTACTO</a>
             </li>
           </ul>
         </div>
@@ -62,22 +86,18 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('img/Imagen1.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
+              <!--<h3>First Slide</h3>
+              <p>This is a description for the first slide.</p>-->
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('img/Imagen2.jpeg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('img/Imagen3.jpeg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
             </div>
           </div>
         </div>
@@ -96,19 +116,55 @@
     <section class="py-5">
       <div class="container">
         <h1 class="center-text">QUÉ HACEMOS</h1>
-        <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the
-          <code>full-slider.css</code>
-          file.</p>
+        <br>
+          <hr class="style17 icon">
+        <br>
+        <!--<div class="separator"><span><i class="fa fa-circle" style="font-size:8px;color:darkTurquoise;"></i></span></div>-->
       </div>
     </section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3>Construcción</h3>
+          <p style="color: Gray">Con mas de cinco años de experiencia; contamos con personal altamente calificado para la gestión y desarrollo de proyectos de cualquier magnitud.</p>
+        </div>
+        <div class="col"> 
+          <h3>Remodelación</h3>
+          <p style="color: Gray">Creemos que un espacio puede recobrar vida con una remodelación sabiendo aprovechar los recursos con los que se cuenta.</p>
+        </div>
+        <div class="col">
+          <h3>Diseño</h3>
+          <p style="color: Gray">Con la experiencia de nuestra área creativa, especializada en arquitectura de interiores, somos capaces de desarrollar proyectos vanguardistas enfocados en el diseño.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img src="img/remplazar1.jpg" alt="" height="200" width="350">
+        </div>
+        <div class="col">
+          <img src="img/remplazar2.jpeg" alt="" height="200" width="350">
+        </div>
+        <div class="col">
+          <img src="img/remplazar3.jpg.jpg" alt="" height="200" width="350">
+        </div>
+      </div>
+    </div>
+
+    <br>
 
     <!-- Footer -->
     <footer class="py-2" style="background-color: #C0C0C0">
       <div class="container" style="height: 5%;">
-        <p class="text-left text-black">Copyright &copy; Your Website 2018</p>
+        <br><h6><p class="text-left text-black">&copy; Todos los derechos reservados a Perfect House  2018</p></h6>
       </div>
+      <a id="back-to-top" href="#" class="show"></a>
       <!-- /.container -->
     </footer>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
