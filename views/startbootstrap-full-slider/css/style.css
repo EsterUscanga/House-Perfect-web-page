@@ -77,17 +77,50 @@ hr.style17 {
 }
 
 .dot {
-	height: 200px;
 	width: 200px;
-	background-color: rgba(32,178,170, .7 );
-	border-radius: 50%;
-	color:  rgba(0,0,0, .7 );
-	font-size: 20px;
-	line-height: 500px;
+  height: 200px;
+  border-radius: 50%;
+  line-height: 200px;
   text-align: center;
+	background-color: rgba(32,178,170, .7 );
+	color:rgba(0,0,0, .7 );
+}
+
+.hl {
+	border-top: 1px solid black;
+	width: 94%;
+}
+
+.vl1 {
+	border-right: 1px solid black;
+	height: 50px;
+	padding-left: 6%;
+}
+
+.vl2 {
+	border-right: 1px solid black;
+	height: 50px;
+	padding-left: 35%;
+	display: none	;
+}
+
+.vl3 {
+	border-right: 1px solid black;
+	height: 50px;
+	padding-left: 56%;
+	display: none	;
+}
+
+.vl4 {
+	border-right: 1px solid black;
+	height: 50px;
+	padding-left: 85%;
+	display: none	;
 }
 
 .dot:hover{
 	background-color: rgba(0,0,0, .7 );
+	color: white;
+	cursor: pointer;
 }
 

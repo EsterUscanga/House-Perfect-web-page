@@ -1,0 +1,85 @@
+
+$(document).ready(function () {
+    $("#uno").click(function () {
+        $("#1").show()
+        $("#2").hide()
+        $("#3").hide()
+        $("#4").hide()
+
+        $(".vl1").show()
+        $("#uno").css("background-color", "rgba(0,0,0, .7 )")
+        $("#uno").css("color", "white")
+        $(".vl2").hide()
+        $(".vl3").hide()
+        $(".vl4").hide()
+
+
+        $("#dos").css("background-color", "rgba(32,178,170, .7 )")
+        $("#dos").css("color", "black")
+        $("#tres").css("background-color", "rgba(32,178,170, .7 )")
+        $("#tres").css("color", "black")
+        $("#cuatro").css("background-color", "rgba(32,178,170, .7 )")
+        $("#cuatro").css("color", "black")
+    })
+    $("#dos").click(function () {
+        $("#1").hide()
+        $("#2").show()
+        $("#3").hide()
+        $("#4").hide()
+
+
+        $(".vl1").hide()
+        $(".vl2").show()
+        $("#dos").css("background-color", "rgba(0,0,0, .7 )") 
+        $("#dos").css("color", "white")
+        $(".vl3").hide()
+        $(".vl4").hide()
+
+        $("#uno").css("background-color", "rgba(32,178,170, .7 )")
+        $("#uno").css("color", "black")
+        $("#tres").css("background-color", "rgba(32,178,170, .7 )")
+        $("#tres").css("color", "black")
+        $("#cuatro").css("background-color", "rgba(32,178,170, .7 )")
+        $("#cuatro").css("color", "black")
+    })
+    $("#tres").click(function () {
+        $("#1").hide()
+        $("#2").hide()
+        $("#3").show()
+        $("#tres").css("background-color", "rgba(0,0,0, .7 )")
+        $("#tres").css("color", "white")
+        $("#4").hide()
+
+        $(".vl1").hide()
+        $(".vl2").hide()
+        $(".vl3").show()
+        $(".vl4").hide()
+
+        $("#uno").css("background-color", "rgba(32,178,170, .7 )")
+        $("#uno").css("color", "black")
+        $("#dos").css("background-color", "rgba(32,178,170, .7 )")
+        $("#dos").css("color", "black")
+        $("#cuatro").css("background-color", "rgba(32,178,170, .7 )")
+        $("#cuatro").css("color", "black")
+    })
+    $("#cuatro").click(function () {
+        $("#1").hide()
+        $("#2").hide()
+        $("#3").hide()
+        $("#4").show()
+        $("#cuatro").css("background-color", "rgba(0,0,0, .7 )")
+        $("#cuatro").css("color", "white")
+
+        $(".vl1").hide()
+        $(".vl2").hide()
+        $(".vl3").hide()
+        $(".vl4").show()
+
+        $("#uno").css("background-color", "rgba(32,178,170, .7 )")
+        $("#uno").css("color", "black")
+        $("#dos").css("background-color", "rgba(32,178,170, .7 )")
+        $("#dos").css("color", "black")
+        $("#tres").css("background-color", "rgba(32,178,170, .7 )")
+        $("#tres").css("color", "black")
+    })
+})        
