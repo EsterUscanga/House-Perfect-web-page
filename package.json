@@ -1,0 +1,25 @@
+{
+  "name": "house-perfect-web-page",
+  "version": "1.0.0",
+  "description": "Web page for a real state",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EsterUscanga/House-Perfect-web-page.git"
+  },
+  "author": "EsterUscanga & LauGonzalez168",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EsterUscanga/House-Perfect-web-page/issues"
+  },
+  "homepage": "https://github.com/EsterUscanga/House-Perfect-web-page#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "path": "^0.12.7"
+  }
+}

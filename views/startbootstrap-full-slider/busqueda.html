@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>House Perfect</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Awesome icons -->
+    <link rel="stylesheet" href="css/web-fonts-with-css/css/fontawesome-all.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/slder.css">
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light  border border-top-0  border-right-0 border-left-0 border-dark " style="background-color: white;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.jpg" width="110" height="90" class="d-inline-block align-top" alt="LOGO">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="color: black;">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" style="letter-spacing: 3px;" href="#">QUIÉNES SOMOS
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+
+                    <li class="pt-1 pl-1 pr-1">
+                        <span>
+                            <i class="fa fa-circle" style="font-size:8px;color:LightSeaGreen ;"></i>
+                        </span>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" style="letter-spacing: 3px;" href="servicios.html">SERVICIOS</a>
+                    </li>
+
+                    <li class="pt-1 pl-1 pr-1">
+                        <span>
+                            <i class="fa fa-circle" style="font-size:8px;color:LightSeaGreen ;"></i>
+                        </span>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active" style="letter-spacing: 3px;" href="busqueda.html">BÚSQUEDA</a>
+                    </li>
+
+                    <li class="pt-1 pl-1 pr-1">
+                        <span>
+                            <i class="fa fa-circle" style="font-size:8px;color:LightSeaGreen ;"></i>
+                        </span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" style="letter-spacing: 3px;" href="#">CONTACTO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Content page-->
+
+    <header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 pl-5">
+                    <form class="pt-3" name="form" onsubmit="getData(form)"> 
+                        <select name="" id="combo" >
+                            <option value="Casas">Casas</option>
+                            <option value="Departamentos">Departamentos</option>
+                            <option value="Terrenos">Terrenos</option>
+                            <option value="Oficinas">Oficinas</option>
+                            <option value="Bodegas">Bodegas</option>
+                        </select><br>
+                        <label for="Status">Status: </label>
+                        <input type="radio" name="Status" value="Renta"> Renta
+                        <input type="radio" name="Status" value="Venta" checked> Venta
+                        <br>
+                        <div class="slider">
+                            <div class="track"></div>
+                        </div>
+                        <div class="output o0"> </div>
+                        <div class="thumb t0"></div>
+                        
+                        <div class="output o1"> </div>
+                        <div class="thumb t1"></div>
+                        <br>
+                        <br>
+                        <label for="Num_cuartos">Número de habitaciones: </label>
+                        <select name="Num_cuartos" size=1>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <label for="Num_vestidor">Número de vestidores: </label>
+                        <select name="Num_vestidor" size=1>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="Num_baños">Número de vestidores: </label>
+                        <select name="Num_vestidor" size=1>
+                            <br>
+                            <br>
+                            <br>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="Cuarto_servocio">Cuarto de servicio: </label>
+                        <input type="radio" name="Status" value="Si"> Si
+                        <input type="radio" name="Status" value="No" checked> No
+                        <br>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-lg-8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="gallery">
+                                <figure>
+                                    <img src="img/Barranca Del Refugio/unnamed (1).jpg"
+                                        alt="" width="250" height="200"/>
+                                    <figcaption>
+                                        <small>Barranca Del Refugio</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="img/Barranca Del Refugio/unnamed (2).jpg"
+                                        alt="" width="250" height="200"/>
+                                    <figcaption>
+                                        <small>Barranca Del Refugio</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="img/Barranca Del Refugio/unnamed.jpg"
+                                        alt="" width="250" height="200"/>
+                                    <figcaption>
+                                        <small>Barranca Del Refugio</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1439798060585-62ab242d7724?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Yellowstone National Park
+                                        <small>United States</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1440339738560-7ea831bf5244?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Quiraing, Portree
+                                        <small>United Kingdom</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1441906363162-903afd0d3d52?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Highlands
+                                        <small>United States</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1448814100339-234df1d4005d?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Daytona Beach
+                                        <small>United States</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1443890923422-7819ed4101c0?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Териберка, gorod Severomorsk
+                                        <small>Russia</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1445964047600-cdbdb873673d?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>
+                                        Bad Pyrmont
+                                        <small>Deutschland</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1439798060585-62ab242d7724?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Yellowstone National Park
+                                        <small>United States</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1440339738560-7ea831bf5244?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Quiraing, Portree
+                                        <small>United Kingdom</small>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="https://images.unsplash.com/photo-1441906363162-903afd0d3d52?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                                        alt="" />
+                                    <figcaption>Highlands
+                                        <small>United States</small>
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+                                <symbol id="close" viewBox="0 0 18 18">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+                                S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+                                l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+                                c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+                                s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z" />
+                                </symbol>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+    </header>
+
+
+
+    <!--Back to the top button-->
+    <a href="" onclick="topFunction()" id="myBtn">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+
+    <div class="container pt-5">
+        <div class="row" style="border-bottom: 1px solid black;">
+            <h6>
+                <b style="color: LightSeaGreen">Teléfono:</b>&nbsp; ### ### ## ##</h6>
+        </div>
+        <div class="row pt-3" style="border-bottom: 1px solid black;">
+            <h6>
+                <b style="color: LightSeaGreen">Email:</b>&nbsp; ### ### ## ##</h6>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-2 mt-5" style="background-color: #C0C0C0">
+        <div class="container" style="height: 5%;">
+            <br>
+            <h6 class="text-left text-black">&copy; Todos los derechos reservados a Perfect House 2018</h6>
+        </div>
+        <a id="back-to-top" href="#" class="show"></a>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap code JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- My JavaScript code -->
+    <script src="js/scroll.js"></script>
+    <script src="js/dots.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/slider.js"></script>
+
+</body>
+
+</html>
