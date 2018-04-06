@@ -18,6 +18,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/contacto.css">
 
 
 </head>
@@ -88,53 +89,42 @@
   <!-- Page Content -->
   <section class="py-5">
     <div class="container">
-      <h2 class="center-text pb-4">SERVICIOS</h2>
+      <h2 class="center-text pb-4">CONTACTO</h2>
       <hr class="style17 icon pb-3">
-      <div class="row">
-        <div class="col">
-          <div class="circle">
-          </div>
-          <div class="pt-3">
-            <h4>Construcción</h4>
-          </div>
-          <p style="color: Gray">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. .</p>
-        </div>
-        <div class="col">
-          <div class="circle2">
-          </div>
-          <div class="pt-3">
-            <h4>Reparación</h4>
-          </div>
-          <p style="color: Gray">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. .</p>
-
-
-        </div>
-        <div class="col">
-          <div class="circle3">
-          </div>
-          <div class="pt-3">
-            <h4>Venta</h4>
-          </div>
-          <p style="color: Gray">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. .</p>
-
-        </div>
-        <div class="col">
-          <div class="circle4">
-          </div>
-          <div class="pt-3">
-            <h4>Renta</h4>
-          </div>
-          <p style="color: Gray">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. .</p>
-
-        </div>
-      </div>
-
 
     </div>
+
+    <div class="container">
+      <div class="contenedor-form">
+        <div>
+
+        </div>
+
+
+        <div class="formulario">
+          <h2>Registra tus datos para cita previa</h2>
+          <form action="#" name="myForm">
+            <label for="Nombre">Nombre</label>
+            <input type="text" id="Nombre" name="Nombre" placeholder="ej. Juan Antonio" required pattern="^[A-Z]+[a-záéíóú]*\.?\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
+              title="Debes inciar con una letra mayúscula en cada nombre" size=10 maxlength="30">
+            <label for="a_paterno">Apellido Paterno</label>
+            <input type="text" id="a_paterno" name="a_paterno" placeholder="ej. López" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
+              title="Debes inciar con una letra mayúscula en tu apellido " size=10 maxlength="15">
+            <label for="a_materno">Apellido Materno</label>
+            <input type="text" id="a_materno" name="a_materno" placeholder="ej. Rodriguez" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
+              title="Debes inciar con una letra mayúscula en tu apellido " size=10 maxlength="15">
+            <label for="Nacimiento">Nacimiento</label>
+            <br>
+            <input type="date" id="Nacimiento" name="Nacimiento">
+            <br>
+            <label for="RFC">RFC</label>
+            <input type="text" id="RFC" name="RFC" onfocus="Obtener(myForm)" maxlength="10">
+            <label for="Recibir">recibir información: </label>
+            <input name="Recibir" type="checkbox" checked>
+            <input type="submit" value="Registrarse">
+          </form>
+        </div>
+      </div>
   </section>
 
   <div class="container pt-5">
