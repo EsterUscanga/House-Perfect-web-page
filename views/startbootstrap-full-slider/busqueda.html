@@ -88,7 +88,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 pl-5">
-                    <form class="pt-3" name="form" onsubmit="getData(form)"> 
+                    <form class="pt-3" name="form"> 
                         <select name="" id="combo" >
                             <option value="Casas">Casas</option>
                             <option value="Departamentos">Departamentos</option>
@@ -152,6 +152,7 @@
                         <input type="radio" name="Status" value="No" checked> No
                         <br>
                         <br>
+                        <input type="button" value="enviar" onclick="sendData(form)">
                     </form>
                 </div>
                 <div class="col-lg-8">
@@ -296,6 +297,7 @@
     <script src="js/dots.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/getData.js"></script>
 
 </body>
 

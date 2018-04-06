@@ -23,10 +23,6 @@ app.use(express.static(path.join(__dirname, pathClient))) // para crear el clien
 
 
 
-app.get('/', function(req, res){
-  res.send()
-})
-
 // Create connection
 
 var db = mysql.createConnection({
@@ -48,7 +44,7 @@ db.connect(function(err){
  /*  Queries to filter information   */
 /*----------------------------------*/
 
-/*
+
 const atributosBienraiz = ['casas', 'departamentos', 'bodegas', 'oficinas', 'terrenos']
 const tiposBienraiz = ['casa', 'departamento', 'bodega', 'oficina', 'terreno']
 
@@ -63,17 +59,28 @@ for (let i in tiposBienraiz){
 
 let resultsTipobienraiz = []
 
+
 for (let i in queryBienRaiz){
-  resultsTipobienraiz[i] = db.query(queryBienRaiz[i], function(err, result) {
+  db.query(queryBienRaiz[i], function(err, result) {
     if (err)
       throw err
+    else{
+      setValue(result)
+    }  
   })
 }
 
-console.log(resultsTipobienraiz)
 
+function setValue(value){
+  resultsTipobienraiz = value
+  getData(resultsTipobienraiz)
+  console.log(resultsTipobienraiz)
+}
 
-*/
+app.get('/', function(req, res){  
+  res.send()
+})
+
 app.listen(port, function(){
   console.log(messagePort)
 })
