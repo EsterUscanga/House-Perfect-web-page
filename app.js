@@ -2,12 +2,20 @@ const express = require('express')
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
 const path = require('path')
-const data = require('./views/startbootstrap-full-slider/js/getData.js')
+const data = require('./views/js/getData.js')
 
 const port = '8380'
 const messagePort = 'Server started on  http://localhost:' + port + '/index.html'
 
 var app = express()
+
+const pathClient = 'views/'
+
+// Viwe wngine for 'busqueda file'
+
+app.set('view engine', 'ejs')
+app.set(pathClient, path.join(__dirname, pathClient))
+
 
 app.use(bodyParser.json())
 
@@ -17,7 +25,7 @@ app.use(bodyParser.urlencoded({
 
 // sete satatic path
 
-const pathClient = 'views/startbootstrap-full-slider/'
+
 
 app.use(express.static(path.join(__dirname, pathClient))) // para crear el cliente
 
@@ -65,22 +73,36 @@ for (let i in queryBienRaiz){
     if (err)
       throw err
     else{
-      setValue(result)
+      console.log(result)
     }  
   })
 }
 
-
-function setValue(value){
-  resultsTipobienraiz = value
-  getData(resultsTipobienraiz)
-  console.log(resultsTipobienraiz)
-}
-
 app.get('/', function(req, res){  
-  res.send()
+  res.render('index')
 })
 
+app.get('/quienes', function(req, res){  
+  res.render('quienes')
+})
+
+app.get('/servicios', function(req, res){  
+  res.render('servicios')
+})
+
+app.get('/busqueda', function(req, res){  
+  res.render('busqueda')
+})
+
+app.get('/contacto', function(req, res){  
+  res.render('contacto')
+})
+
+/*
+app.get('/busqueda.ejs', function (req, res) {
+  res.render('busqueda')
+})
+*/
 app.listen(port, function(){
   console.log(messagePort)
 })
