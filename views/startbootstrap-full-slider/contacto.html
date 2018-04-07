@@ -113,18 +113,16 @@
             <label for="a_materno">Apellido Materno</label>
             <input type="text" id="a_materno" name="a_materno" placeholder="ej. Rodriguez" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
               title="Debes inciar con una letra mayúscula en tu apellido " size=10 maxlength="15">
-            <label for="Nacimiento">Nacimiento</label>
-            <br>
-            <input type="date" id="Nacimiento" name="Nacimiento">
-            <br>
-            <label for="RFC">RFC</label>
-            <input type="text" id="RFC" name="RFC" onfocus="Obtener(myForm)" maxlength="10">
-            <label for="Recibir">recibir información: </label>
-            <input name="Recibir" type="checkbox" checked>
+			  <label for="telefono">Teléfono</label>
+                <input type="text" name="telefono" placeholder="###-###-####" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+             <label for="Correo">Correo</label>
+                <input type="email"  name="Correo"placeholder="Correo Electronico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+           
             <input type="submit" value="Registrarse">
           </form>
         </div>
       </div>
+	  </div>
   </section>
 
   <div class="container pt-5">

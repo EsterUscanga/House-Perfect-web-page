@@ -6,10 +6,9 @@
     box-sizing: border-box;
 }
 
- body{
+body{
     background-size: cover;
     background-attachment: fixed;
-    font-family: Roboto;
    
 }
 
@@ -44,7 +43,7 @@
     color: #fff;
     border: none;
     border-radius: 2px;
-    border-bottom: 4px solid #984b43;
+    border-bottom: 4px solid #20b2aa;
     box-sizing: border-box;
     font-family: Roboto;
     font-size: 14px;
@@ -55,11 +54,11 @@
 .contenedor-form input[type="text"]:focus,
 .contenedor-form input[type="password"]:focus,
 .contenedor-form input[type="email"]:focus {
-    border-bottom: 4px solid #eac67a;
+    border-bottom: 4px solid #07889b;
 }
 
 .contenedor-form input[type="submit"] {
-    background: #813772;
+    background: #66B9B7;
     color: #FFF;
     width: 100%;
     border: none;
