@@ -2,7 +2,6 @@ const express = require('express')
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
 const path = require('path')
-const data = require('./views/js/getData.js')
 
 const port = '8380'
 const messagePort = 'Server started on  http://localhost:' + port + '/index.html'
@@ -68,16 +67,6 @@ for (let i in tiposBienraiz){
 let resultsTipobienraiz = []
 
 
-for (let i in queryBienRaiz){
-  db.query(queryBienRaiz[i], function(err, result) {
-    if (err)
-      throw err
-    else{
-      console.log(result)
-    }  
-  })
-}
-
 app.get('/', function(req, res){  
   res.render('index')
 })
@@ -97,6 +86,18 @@ app.get('/busqueda', function(req, res){
 app.get('/contacto', function(req, res){  
   res.render('contacto')
 })
+
+app.post('/busqueda', function(req, res){
+  const tipoBien = req.body.combo
+  db.query(tipoBien, function(err, result) {
+    if (err)
+      throw err
+    else{
+      console.log(result)
+    }  
+  })
+})
+
 
 /*
 app.get('/busqueda.ejs', function (req, res) {

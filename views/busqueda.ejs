@@ -88,8 +88,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 pl-5">
-                    <form class="pt-3" name="form"> 
-                        <select name="" id="combo" >
+                    <form class="pt-3" name="form" method="POST" action="/busqueda"> 
+                        <select name="combo" id="combo" >
                             <option value="Casas">Casas</option>
                             <option value="Departamentos">Departamentos</option>
                             <option value="Terrenos">Terrenos</option>
@@ -152,7 +152,7 @@
                         <input type="radio" name="Status" value="No" checked> No
                         <br>
                         <br>
-                        <input type="button" value="enviar" onclick="getData(form)">
+                        <input type="submit" value="enviar" onclick="getData(form)">
                     </form>
                 </div>
                 <div class="col-lg-8">
