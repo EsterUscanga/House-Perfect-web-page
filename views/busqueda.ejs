@@ -29,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light  border border-top-0  border-right-0 border-left-0 border-dark " style="background-color: white;">
         <div class="container">
-            <a class="navbar-brand" href="index.ejs">
+            <a class="navbar-brand" href="index">
                 <img src="img/logo.jpg" width="110" height="90" class="d-inline-block align-top" alt="LOGO">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive" style="color: black;">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" style="letter-spacing: 3px;" href="quienes.ejs">QUIÉNES SOMOS
+                        <a class="nav-link" style="letter-spacing: 3px;" href="quienes">QUIÉNES SOMOS
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -53,7 +53,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" style="letter-spacing: 3px;" href="servicios.ejs">SERVICIOS</a>
+                        <a class="nav-link" style="letter-spacing: 3px;" href="servicios">SERVICIOS</a>
                     </li>
 
                     <li class="pt-1 pl-1 pr-1">
@@ -64,7 +64,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link active" style="letter-spacing: 3px;" href="busqueda.ejs">BÚSQUEDA</a>
+                        <a class="nav-link active" style="letter-spacing: 3px;" href="busqueda">BÚSQUEDA</a>
                     </li>
 
                     <li class="pt-1 pl-1 pr-1">
@@ -74,7 +74,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" style="letter-spacing: 3px;" href="contacto.ejs">CONTACTO</a>
+                        <a class="nav-link" style="letter-spacing: 3px;" href="contacto">CONTACTO</a>
                     </li>
                 </ul>
             </div>
@@ -87,72 +87,202 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 pl-5">
-                    <form class="pt-3" name="form" method="POST" action="/busqueda"> 
-                        <select name="combo" id="combo" >
-                            <option value="Casas">Casas</option>
-                            <option value="Departamentos">Departamentos</option>
-                            <option value="Terrenos">Terrenos</option>
-                            <option value="Oficinas">Oficinas</option>
-                            <option value="Bodegas">Bodegas</option>
-                        </select><br>
+                <div class="col-lg-4 pl-5 pt-3 border border-dark border-top-0">
+                    <form action="/busqueda" method="POST" name="form">
+
+                        <label for="seleccionBienes"> Selección de bien: </label>
+                        <select name="combo" id="select">
+                            <option value="div1">Oficinas</option>
+                            <option value="div2">Casas</option>
+                            <option value="div3">Departamentos</option>
+                            <option value="div4">Bodegas</option>
+                            <option value="div5">Terrenos</option>
+                        </select>
+                        <br>
                         <label for="Status">Status: </label>
                         <input type="radio" name="Status" value="Renta"> Renta
-                        <input type="radio" name="Status" value="Venta" checked> Venta
+                        <input type="radio" name="Status" value="venta" checked> Venta
+                        <br> Precio:
                         <br>
-                        <div class="slider">
-                            <div class="track"></div>
+                        <br> Low
+                        <input type="range" name="myChoice1" min="100000" max="5000000" value=80> High
+                        <br>
+                        <br>
+                        <br>
+                        <div id="pai">
+                            <!-- formulario para oficinas -->
+                            <div id="div1" style="display:none">
+                                <label for="Num_bano">Número de baños: </label>
+                                <select name="Num_bano" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="Recepcion">Recepción: </label>
+                                <input type="radio" name="Recepcion" value="si"> Sí
+                                <input type="radio" name="Recepcion" value="no" checked> No
+                                <br>
+                                <label for="Estacionamiento">Estacionamiento: </label>
+                                <input type="radio" name="Estacionamiento" value="si"> Sí
+                                <input type="radio" name="Estacionamiento" value="no" checked> No
+                                <br>
+                            </div>
+                            <!-- formulario para casas -->
+                            <div id="div2" style="display:none">
+                                <label for="capacidad_cochera">Capacidad de autos de la cochera: </label>
+                                <select name="capacidad_cochera" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="num_vestidor">Numero de vestidores: </label>
+                                <select name="num_vestidor" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="num_recamara">Numero de recamaras: </label>
+                                <select name="num_recamara" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <br>
+                                <label for="Num_bano">Numero de baños: </label>
+                                <select name="Num_bano" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <br>
+
+                                <label for="Cuarto_servicio">Recepción: </label>
+                                <input type="radio" name="Cuarto_servicio" value="si"> Sí
+                                <input type="radio" name="Cuarto_servicio" value="no" checked> No
+                                <br>
+                                <label for="Num_sala_tv"> Numero de salas de TV: </label>
+                                <select name="Num_sala_tv" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="Jardin">Jardín: </label>
+                                <input type="radio" name="Jardin" value="si"> Sí
+                                <input type="radio" name="Jardin" value="no" checked> No
+                                <br>
+                            </div>
+                            <!-- formulario para departamentos -->
+                            <div id="div3" style="display:none">
+                                <label for="num_cajones_estac"> Numero de cajones de estacionamiento: </label>
+                                <select name="num_cajones_estac" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="num_vestidor">Numero de vestidores: </label>
+                                <select name="num_vestidor" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="num_recamara">Numero de recamaras: </label>
+                                <select name="num_recamara" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="Num_bano">Numero de baños: </label>
+                                <select name="Num_bano" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+
+                                <label for="Cuarto_servicio">Recepción: </label>
+                                <input type="radio" name="Cuarto_servicio" value="si"> Sí
+                                <input type="radio" name="Cuarto_servicio" value="no" checked> No
+                                <br>
+                                <label for="Num_sala_tv"> Numero de salas de TV: </label>
+                                <select name="Num_sala_tv" size=1>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <br>
+                                <label for="Terraza">Terraza: </label>
+                                <input type="radio" name="Terraza" value="si"> Sí
+                                <input type="radio" name="Terraza" value="no" checked> No
+                                <br>
+                            </div>
+                            <!-- formulario para bodegas -->
+                            <div id="div4" style="display:none">
+                                <label for="Oficina">Oficina: </label>
+                                <input type="radio" name="Oficina" value="si"> Sí
+                                <input type="radio" name="Oficina" value="no" checked> No
+                                <br>
+                                <label for="Estacionamiento">Estacionamiento: </label>
+                                <input type="radio" name="Estacionamiento" value="si"> Sí
+                                <input type="radio" name="Estacionamiento" value="no" checked> No
+                                <br>
+                                <label for="area_descarga">Area de descarga: </label>
+                                <input type="radio" name="area_descarga" value="si"> Sí
+                                <input type="radio" name="area_descarga" value="no" checked> No
+                                <br>
+                            </div>
+                            <!-- formulario para terrenos -->
+                            <div id="div5">
+                                <br>
+
+                            </div>
                         </div>
-                        <div class="output o0"> </div>
-                        <div class="thumb t0"></div>
-                        
-                        <div class="output o1"> </div>
-                        <div class="thumb t1"></div>
-                        <br>
-                        <br>
-                        <label for="Num_cuartos">Número de habitaciones: </label>
-                        <select name="Num_cuartos" size=1>
-                            <option value="1">1</option>
-                            <option value="2" selected>2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <label for="Num_vestidor">Número de vestidores: </label>
-                        <select name="Num_vestidor" size=1>
-                            <option value="1">1</option>
-                            <option value="2" selected>2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        <br>
-                        <br>
-                        <label for="Num_baños">Número de vestidores: </label>
-                        <select name="Num_vestidor" size=1>
-                            <br>
-                            <br>
-                            <br>
-                            <option value="1">1</option>
-                            <option value="2" selected>2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        <br>
-                        <br>
-                        <label for="Cuarto_servocio">Cuarto de servicio: </label>
-                        <input type="radio" name="Status" value="Si"> Si
-                        <input type="radio" name="Status" value="No" checked> No
-                        <br>
-                        <br>
-                        <input type="submit" value="enviar" onclick="getData(form)">
+
+
+
+                        <input type="submit" value="enviar" onclick="sendData(form)">
+
                     </form>
                 </div>
                 <div class="col-lg-8">
@@ -162,6 +292,7 @@
                                 <figure>
                                     <img src="img/Barranca Del Refugio/unnamed (1).jpg"
                                         alt="" width="250" height="200"/>
+									<a href="galeria">ver mas</a>
                                     <figcaption>
                                         <small>Barranca Del Refugio</small>
                                     </figcaption>
@@ -169,6 +300,7 @@
                                 <figure>
                                     <img src="img/Barranca Del Refugio/unnamed (2).jpg"
                                         alt="" width="250" height="200"/>
+										<a href="galeria">ver mas</a>
                                     <figcaption>
                                         <small>Barranca Del Refugio</small>
                                     </figcaption>
@@ -176,6 +308,7 @@
                                 <figure>
                                     <img src="img/Barranca Del Refugio/unnamed.jpg"
                                         alt="" width="250" height="200"/>
+										<a href="galeria">ver mas</a>
                                     <figcaption>
                                         <small>Barranca Del Refugio</small>
                                     </figcaption>
@@ -183,6 +316,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1439798060585-62ab242d7724?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Yellowstone National Park
                                         <small>United States</small>
                                     </figcaption>
@@ -190,6 +324,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1440339738560-7ea831bf5244?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Quiraing, Portree
                                         <small>United Kingdom</small>
                                     </figcaption>
@@ -197,6 +332,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1441906363162-903afd0d3d52?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Highlands
                                         <small>United States</small>
                                     </figcaption>
@@ -204,6 +340,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1448814100339-234df1d4005d?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Daytona Beach
                                         <small>United States</small>
                                     </figcaption>
@@ -211,6 +348,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1443890923422-7819ed4101c0?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Териберка, gorod Severomorsk
                                         <small>Russia</small>
                                     </figcaption>
@@ -218,6 +356,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1445964047600-cdbdb873673d?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>
                                         Bad Pyrmont
                                         <small>Deutschland</small>
@@ -226,6 +365,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1439798060585-62ab242d7724?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Yellowstone National Park
                                         <small>United States</small>
                                     </figcaption>
@@ -233,6 +373,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1440339738560-7ea831bf5244?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Quiraing, Portree
                                         <small>United Kingdom</small>
                                     </figcaption>
@@ -240,6 +381,7 @@
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1441906363162-903afd0d3d52?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
                                         alt="" />
+										<a href="galeria">ver mas</a>
                                     <figcaption>Highlands
                                         <small>United States</small>
                                     </figcaption>
@@ -258,6 +400,8 @@
                         </div>
                     </div>
                 </div>
+			</div>
+		</div>
     </header>
 
 
@@ -298,6 +442,17 @@
     <script src="js/gallery.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/getData.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#select').on('change', function () {
+                var selectValor = '#' + $(this).val()
+                $('#pai').children('div').hide()
+                $('#pai').children(selectValor).show()
+            })
+        })
+
+    </script>
 
 </body>
 
