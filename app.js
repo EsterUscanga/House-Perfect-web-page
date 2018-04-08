@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 
 const port = '8380'
-const messagePort = 'Server started on  http://localhost:' + port + '/index.html'
+const messagePort = 'Server started on  http://localhost:' + port + '/index'
 
 var app = express()
 
@@ -98,15 +98,11 @@ app.post('/busqueda', function (req, res) {
    /*  Queries to filter information   */
   /*----------------------------------*/
 
-  // CASAS
-
   queryBienRaiz = `
   SELECT DISTINCT
     ${tipoBien[0]}s.id_${tipoBien[0]}
   FROM 
-    ${tipoBien[0]}s,
-    bienes_raices
-  WHERE bienes_raices.status = '${tipoBien[1]}'
+    ${tipoBien[0]}s
   `
 
   db.query(queryBienRaiz, function (err, result) {
@@ -118,14 +114,32 @@ app.post('/busqueda', function (req, res) {
   })
 })
 
+app.post('/contacto', function(req, res){
+  const nombre = req.body.Nombre
+  const aPaterno = req.body.paterno
+  const aMaterno = req.body.materno
+  const telefono = req.body.Telefono
+  const correo = req.body.Correo
+
+  let queryInsersion = `
+  INSERT INTO cliente (nombre_cliente, apellido_pat_cliente, apellido_mat_cliente, telefono, correo) VALUES
+  ('${nombre}', '${aPaterno}', '${aMaterno}', '${telefono}', '${correo}');
+  `
+ 
+  db.query(queryInsersion, function (err, result) {
+    if (err)
+      throw err
+    else {
+      console.log('One record inserted')
+    }
+  })
+
+})
+
 app.get('/galeria', function (req, res) {
   res.render('galeria')
 })
-/*
-app.get('/busqueda.ejs', function (req, res) {
-  res.render('busqueda')
-})
-*/
+
 app.listen(port, function () {
   console.log(messagePort)
 })

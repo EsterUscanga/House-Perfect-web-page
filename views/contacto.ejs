@@ -103,26 +103,26 @@
 
         <div class="formulario">
           <h2>Registra tus datos para cita previa</h2>
-          <form action="#" name="myForm">
+          <form action="/contacto" method="POST" name="myForm">
             <label for="Nombre">Nombre</label>
             <input type="text" id="Nombre" name="Nombre" placeholder="ej. Juan Antonio" required pattern="^[A-Z]+[a-záéíóú]*\.?\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
               title="Debes inciar con una letra mayúscula en cada nombre" size=10 maxlength="30">
-            <label for="a_paterno">Apellido Paterno</label>
-            <input type="text" id="a_paterno" name="a_paterno" placeholder="ej. López" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
+            <label for="paterno">Apellido Paterno</label>
+            <input type="text" id="paterno" name="paterno" placeholder="ej. López" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
               title="Debes inciar con una letra mayúscula en tu apellido " size=10 maxlength="15">
-            <label for="a_materno">Apellido Materno</label>
-            <input type="text" id="a_materno" name="a_materno" placeholder="ej. Rodriguez" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
+            <label for="materno">Apellido Materno</label>
+            <input type="text" id="materno" name="materno" placeholder="ej. Rodriguez" required pattern="^[A-Z]+[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*\s?[A-Z]*[a-záéíóú]*"
               title="Debes inciar con una letra mayúscula en tu apellido " size=10 maxlength="15">
-			  <label for="telefono">Teléfono</label>
-                <input type="text" name="telefono" placeholder="###-###-####" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-             <label for="Correo">Correo</label>
-                <input type="email"  name="Correo"placeholder="Correo Electronico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-           
+            <label for="telefono">Teléfono</label>
+            <input type="text" name="Telefono" placeholder="###-###-####" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <label for="Correo">Correo</label>
+            <input type="email" name="Correo" placeholder="Correo Electronico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
             <input type="submit" value="Registrarse">
           </form>
         </div>
       </div>
-	  </div>
+    </div>
   </section>
 
   <div class="container pt-5">
