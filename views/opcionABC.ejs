@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ABC</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="jquery/jquery-nice-select-1.1.0/css/nice-select.css" />
+  <link rel="stylesheet" type="text/css" href="css/quienes/css/component.css" />
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container mt-5 border border-black">
+    <div class="row pt-5 mx-auto">
+      <form action="/opcionABC" method="post">
+        <select name="select">
+          <option data-display="Seleccionar operacion: ABC">ABC</option>
+          <option value="altas">ALTAS</option>
+          <option value="bajas">BAJAS</option>
+          <option value="cambios">CAMBIOS</option>
+        </select>
+        <input type="submit" class="btn btn-2 btn-2f"></input>
+      </form>
+    </div>
+  </div>
+</body>
+
+<script src="jquery/jquery-nice-select-1.1.0/js/jquery.js"></script>
+<script src="jquery/jquery-nice-select-1.1.0/js/jquery.nice-select.min.js"></script>
+<script src="css/quienes/js/modernizr.custom.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('select').niceSelect()
+  })
+</script>
+
+</html>

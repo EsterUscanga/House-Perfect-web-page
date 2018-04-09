@@ -285,9 +285,9 @@
 
 /* Button 2 */
 .btn-2 {
-	background: #cb4e4e;
+	background: LightSeaGreen;
 	color: #fff;
-	box-shadow: 0 6px #ab3c3c;
+	box-shadow: 0 6px rgb(19, 107, 103);
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
@@ -299,12 +299,12 @@
 }
 
 .btn-2a:hover {
-	box-shadow: 0 4px #ab3c3c;
+	box-shadow: 0 4px rgb(19, 107, 103);
 	top: 2px;
 }
 
 .btn-2a:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
@@ -314,12 +314,12 @@
 }
 
 .btn-2b:hover {
-	box-shadow: 0 8px #ab3c3c;
+	box-shadow: 0 8px rgb(19, 107, 103);
 	top: -2px;
 }
 
 .btn-2b:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
@@ -329,12 +329,12 @@
 }
 
 .btn-2c:hover {
-	box-shadow: 0 4px #ab3c3c;
+	box-shadow: 0 4px rgb(19, 107, 103);
 	top: 2px;
 }
 
 .btn-2c:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
@@ -344,44 +344,44 @@
 }
 
 .btn-2d:hover {
-	box-shadow: 0 8px #ab3c3c;
+	box-shadow: 0 8px rgb(19, 107, 103);
 	top: -2px;
 }
 
 .btn-2d:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
 /* Button 2e */
 .btn-2e {
 	border-radius: 5px;
-	box-shadow: -6px 0 #ab3c3c;
+	box-shadow: -6px 0 rgb(19, 107, 103);
 }
 
 .btn-2e:hover {
-	box-shadow: -4px 0 #ab3c3c;
+	box-shadow: -4px 0 rgb(19, 107, 103);
 	left: -2px;
 }
 
 .btn-2e:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	left: -6px;
 }
 
 /* Button 2f */
 .btn-2f {
 	border-radius: 5px;
-	box-shadow: 6px 0 #ab3c3c;
+	box-shadow: 6px 0 rgb(19, 107, 103);
 }
 
 .btn-2f:hover {
-	box-shadow: 4px 0 #ab3c3c;
+	box-shadow: 4px 0 rgb(19, 107, 103);
 	left: 2px;
 }
 
 .btn-2f:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	left: 6px;
 }
 
@@ -391,12 +391,12 @@
 }
 
 .btn-2g:hover {
-	box-shadow: 0 4px #ab3c3c;
+	box-shadow: 0 4px rgb(19, 107, 103);
 	top: 2px;
 }
 
 .btn-2g:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
@@ -406,12 +406,12 @@
 }
 
 .btn-2h:hover {
-	box-shadow: 0 4px #ab3c3c;
+	box-shadow: 0 4px rgb(19, 107, 103);
 	top: 2px;
 }
 
 .btn-2h:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
@@ -424,12 +424,12 @@
 }
 
 .btn-2i:hover {
-	box-shadow: 0 4px #ab3c3c;
+	box-shadow: 0 4px rgb(19, 107, 103);
 	top: 2px;
 }
 
 .btn-2i:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 
@@ -442,12 +442,12 @@
 }
 
 .btn-2j:hover {
-	box-shadow: 0 8px #ab3c3c;
+	box-shadow: 0 8px rgb(19, 107, 103);
 	top: -2px;
 }
 
 .btn-2j:active {
-	box-shadow: 0 0 #ab3c3c;
+	box-shadow: 0 0 rgb(19, 107, 103);
 	top: 6px;
 }
 

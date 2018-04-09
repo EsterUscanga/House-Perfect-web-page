@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Altas</title>
+	<link rel="stylesheet" href="css/estiloAltas.css">
+
+
+</head>
+
+<body>
+
+	<form action="/altas" method="post">
+		<label for="seleccionBienes"> >Selección de bien: </label>
+		<br>
+		<select name="select" id="select">
+			<option value="div1">Oficinas</option>
+			<option value="div2">Casas</option>
+			<option value="div3">Departamentos</option>
+			<option value="div4">Bodegas</option>
+			<option value="div5">Terrenos</option>
+		</select>
+		<!-- Formulario general-->
+		<br> Ubicación:
+		<br>
+		<input type="text" name="Ubicacion" id="Ubicacion">
+		<br> Precio:
+		<br>
+		<input type="text" name="Precio" id="Precio">
+		<br> Superficie:
+		<br>
+		<input type="text" name="Superficie" id="Superficie">
+		<br> Construccion:
+		<br>
+		<input type="text" name="Construccion" id="Construccion">
+		<br> Caracteristicas:
+		<br>
+		<input type="text" name="Caracteristicas" id="Caracteristicas">
+		<br>
+		<label for="Status">Status: </label>
+		<input type="radio" name="Status" value="Venta"> Venta
+		<input type="radio" name="Status" value="Renta" checked> Renta
+		<br>
+		<br>
+		<br>
+		<div id="pai">
+			<!-- formulario para oficinas -->
+			<div id="div1">
+				Número de baño:
+				<br>
+				<input type="text" name="bano" id="Num_bano">
+				<br>
+				<label for="Recepcion">Recepción: </label>
+				<input type="radio" name="Recepcion" value="si"> Sí
+				<input type="radio" name="Recepcion" value="no" checked> No
+				<br>
+				<label for="Estacionamiento">Estacionamiento: </label>
+				<input type="radio" name="Estacionamiento" value="si"> Sí
+				<input type="radio" name="Estacionamiento" value="no" checked> No
+				<br>
+			</div>
+			<!-- formulario para casas -->
+			<div id="div2">
+				Capacidad cochera:
+				<br>
+				<input type="text" name="capacidad_cochera" id="capacidad_cochera">
+				<br> Numero de vestidores:
+				<br>
+				<input type="text" name="num_vestidor" id="num_vestidor">
+				<br> Numero de recamaras:
+				<br>
+				<input type="text" name="num_recamara" id="num_recamara">
+				<br> Numero de baños:
+				<br>
+				<input type="text" name="Num_bano" id="Num_bano">
+				<br>
+				<label for="Cuarto_servicio">Recepción: </label>
+				<input type="radio" name="Cuarto_servicio" value="si"> Sí
+				<input type="radio" name="Cuarto_servicio" value="no" checked> No
+				<br> Numero de salas de TV:
+				<br>
+				<input type="text" name="Num_sala_tv" id="Num_sala_tv">
+				<br>
+				<label for="Jardin">Jardín: </label>
+				<input type="radio" name="Jardin" value="si"> Sí
+				<input type="radio" name="Jardin" value="no" checked> No
+				<br>
+			</div>
+			<!-- formulario para departamentos -->
+			<div id="div3">
+				Numero de cajones de estacionamiento:
+				<br>
+				<input type="text" name="num_cajones_estac" id="num_cajones_estac">
+				<br> Numero de vestidores:
+				<br>
+				<input type="text" name="num_vestidor" id="num_vestidor">
+				<br> Numero de recamaras:
+				<br>
+				<input type="text" name="num_recamara" id="num_recamara">
+				<br> Numero de baños:
+				<br>
+				<input type="text" name="Num_bano" id="Num_bano">
+				<br>
+				<label for="Cuarto_servicio">Recepción: </label>
+				<input type="radio" name="Cuarto_servicio" value="si"> Sí
+				<input type="radio" name="Cuarto_servicio" value="no" checked> No
+				<br> Numero de salas de TV:
+				<br>
+				<input type="text" name="Num_sala_tv" id="Num_sala_tv">
+				<br>
+				<label for="Terraza">Terraza: </label>
+				<input type="radio" name="Terraza" value="si"> Sí
+				<input type="radio" name="Terraza" value="no" checked> No
+				<br>
+			</div>
+			<!-- formulario para bodegas -->
+			<div id="div4">
+				<label for="Oficina">Oficina: </label>
+				<input type="radio" name="Oficina" value="si"> Sí
+				<input type="radio" name="Oficina" value="no" checked> No
+				<br>
+				<label for="Estacionamiento">Estacionamiento: </label>
+				<input type="radio" name="Estacionamiento" value="si"> Sí
+				<input type="radio" name="Estacionamiento" value="no" checked> No
+				<br>
+				<label for="area_descarga">Area de descarga: </label>
+				<input type="radio" name="area_descarga" value="si"> Sí
+				<input type="radio" name="area_descarga" value="no" checked> No
+				<br>
+			</div>
+			<!-- formulario para terrenos -->
+			<div id="div5">
+				Servicios:
+				<br>
+				<input type="text" name="Servicios" id="Servicios">
+				<br> Urbanización:
+				<br>
+				<input type="text" name="Urbanizacion" id="Urbanizacion">
+				<br>
+
+			</div>
+		</div>
+		<input type="submit" value="enviar">
+	</form>
+
+
+</body>
+</body>
+
+<!-- Bootstrap code JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- My JavaScript code -->
+<script type="text/javascript" src="js/altas.js"></script>
+
+</html>
