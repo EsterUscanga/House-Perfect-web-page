@@ -3,6 +3,7 @@ const mysql = require('mysql')
 const bodyParser = require('body-parser')
 const path = require('path')
 const parseInt = require('parse-int')
+const fileUpload = require('express-fileupload')
 
 const port = '8380'
 const messagePort = 'Server started on  http://localhost:' + port + '/index'
@@ -177,41 +178,41 @@ app.post('/opcionABC', function (req, res) {
 
 })
 
+app.get('/bajas', function (req, res) {
+  const queryBajas = `
+    SELECT * 
+    FROM bienes_raices
+  `
+  db.query(queryBajas, function (err, result) {
+    if (err)
+      throw err
+    else {
+      console.log(result)
+    }
+  })  
+})
+
 app.post('/altas', function (req, res) {
-
-  let array = []
-
   const bien = req.body.select
-  array.push(bien)
   const ubicacion = req.body.Ubicacion
-  array.push(ubicacion)
   const precio = req.body.Precio
-  array.push(precio)
   const superficie = req.body.Superficie
-  array.push(superficie)
   const construccion = req.body.Construccion
-  array.push(construccion)
   const caracteristicas = req.body.Caracteristicas
-  array.push(caracteristicas)
   const status = req.body.Status
-  array.push(status)
 
 
   switch (bien) {
     case 'div1':
       const noBanos = req.body.bano
-      array.push(noBanos)
       const recepcion = req.body.Recepcion
-      array.push(recepcion)
       const estacionamiento = req.body.Estacionamiento
-      array.push(estacionamiento)
 
-      console.log(array)
 
       const queryOficinas = `
-    INSERT INTO oficinas (num_bano, recepcion, estacionamiento) VALUES
-    ('${noBanos}', '${recepcion}', '${estacionamiento}');
-    `
+      INSERT INTO oficinas (num_bano, recepcion, estacionamiento) VALUES
+      ('${noBanos}', '${recepcion}', '${estacionamiento}');
+      `
       console.log(queryOficinas)
 
       db.query(queryOficinas, function (err, result) {
@@ -227,7 +228,7 @@ app.post('/altas', function (req, res) {
       let query = `
       SELECT id_oficina FROM oficinas
       WHERE id_oficina =(SELECT MAX(id_oficina) FROM oficinas)
-    `
+      `
 
       db.query(query, function (err, result) {
         if (err)
@@ -236,11 +237,11 @@ app.post('/altas', function (req, res) {
 
           let id = parseInt(result[0]['id_oficina'])
 
-          const queryOficinas_bienRaiz = `
-        INSERT INTO bienes_raices (ubicacion, precio, superficie, contruccion, caracteristicas, status, cod_departamento, cod_bodega, cod_casa, cod_terreno, cod_oficina, cod_compra) VALUES
-        ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', 1, 1, 1, 1, ${parseInt(result[0]['id_oficina'])}, 1);
-        `
-          console.log(queryOficinas_bienRaiz)
+          const queryOficinas_bienRaizOficina = `
+          INSERT INTO bienes_raices (ubicacion, precio, superficie, contruccion, caracteristicas, status, cod_departamento, cod_bodega, cod_casa, cod_terreno, cod_oficina, cod_compra) VALUES
+          ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', 1, 1, 1, 1, ${parseInt(result[0]['id_oficina'])}, 1);
+          `
+          console.log(queryOficinas_bienRaizOficina)
 
 
           db.query(queryOficinas_bienRaiz, function (err, result) {
@@ -276,8 +277,9 @@ app.post('/altas', function (req, res) {
 
       const queryCasa = `
       INSERT INTO casas (capacidad_cochera, num_vestidor, num_recamara, num_bano, cuarto_servicio, num_sala_tv, jardin) VALUES
-      ('${capacidadCochera}', '${numVestidor}', '${numRecamaras}', '${numBano}', '${cuartoServicio}', '${numSalastv} , '${jardin});
+      ('${capacidadCochera}', '${numVestidor}', '${numRecamaras}', '${numBano}', '${cuartoServicio}', '${numSalastv}' , '${jardin}');
       `
+      console.log(queryCasa)
       db.query(queryCasa, function (err, result) {
         if (err)
           throw err
@@ -286,26 +288,27 @@ app.post('/altas', function (req, res) {
         }
       })
 
-      query = `
+      let queryGet = `
       SELECT id_casa FROM casas
       WHERE id_casa =(SELECT MAX(id_casa) FROM casas)
       `
+      console.log(queryGet)
 
-      db.query(query, function (err, result) {
+      db.query(queryGet, function (err, result) {
         if (err)
           throw err
         else {
 
           let id = parseInt(result[0]['id_casa'])
 
-          const querycasas_bienRaiz = `
-          INSERT INTO bienes_raices (ubicacion, precio, superficie, contruccion, caracteristicas, status, cod_departamento, cod_bodega, cod_casa, cod_terreno, cod_casas, cod_compra) VALUES
-          ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', 1, 1, 1, 1, ${parseInt(result[0]['id_oficina'])}, 1);
+          const querycasas_bienRaizCasa = `
+          INSERT INTO bienes_raices (ubicacion, precio, superficie, contruccion, caracteristicas, status, cod_departamento, cod_bodega, cod_casa, cod_terreno, cod_oficina, cod_compra) VALUES
+          ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', 1, 1, ${parseInt(result[0]['id_casa'])}, 1, 1, 1);
           `
-          console.log(queryOficinas_bienRaiz)
+          console.log(querycasas_bienRaizCasa)
 
 
-          db.query(queryOficinas_bienRaiz, function (err, result) {
+          db.query(querycasas_bienRaizCasa, function (err, result) {
             if (err)
               throw err
             else {
@@ -332,6 +335,7 @@ app.post('/altas', function (req, res) {
 
 
 })
+
 
 
 app.listen(port, function () {

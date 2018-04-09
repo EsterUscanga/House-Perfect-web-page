@@ -24,15 +24,21 @@
 <body>
 
   <div class="container mt-5 border border-black">
-    <div class="row pt-5 mx-auto">
+    <div class="row pt-5" >
       <form action="/opcionABC" method="post">
-        <select name="select">
-          <option data-display="Seleccionar operacion: ABC">ABC</option>
-          <option value="altas">ALTAS</option>
-          <option value="bajas">BAJAS</option>
-          <option value="cambios">CAMBIOS</option>
-        </select>
-        <input type="submit" class="btn btn-2 btn-2f"></input>
+        <div style="padding-left : 65%" >
+          <select name="select">
+            <option data-display="Seleccionar operacion: ABC">ABC</option>
+            <option value="altas">ALTAS</option>
+            <option value="bajas">BAJAS</option>
+            <option value="cambios">CAMBIOS</option>
+          </select>
+        </div>
+        <br>
+        <div style="padding-left: 40%">
+          <input type="submit" class="btn btn-2 btn-2f"  ></input>
+
+        </div>
       </form>
     </div>
   </div>
