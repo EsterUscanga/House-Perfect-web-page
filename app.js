@@ -111,8 +111,11 @@ app.post('/busqueda', function (req, res) {
       throw err
     else {
       console.log(result)
+      res.render('/busqueda')
     }
   })
+
+
 })
 
 app.post('/contacto', function (req, res) {
@@ -196,63 +199,121 @@ app.post('/altas', function (req, res) {
 
   switch (bien) {
     case 'div1':
-    const noBanos = req.body.bano
-    array.push(noBanos)
-    const recepcion = req.body.Recepcion
-    array.push(recepcion)
-    const estacionamiento = req.body.Estacionamiento
-    array.push(estacionamiento)
+      const noBanos = req.body.bano
+      array.push(noBanos)
+      const recepcion = req.body.Recepcion
+      array.push(recepcion)
+      const estacionamiento = req.body.Estacionamiento
+      array.push(estacionamiento)
 
-    console.log(array)
+      console.log(array)
 
-   
-    const query = `
+      const queryOficinas = `
+    INSERT INTO oficinas (num_bano, recepcion, estacionamiento) VALUES
+    ('${noBanos}', '${recepcion}', '${estacionamiento}');
+    `
+      console.log(queryOficinas)
+
+      db.query(queryOficinas, function (err, result) {
+        if (err)
+          throw err
+        else {
+          console.log('One record inserted(En tabla oficinas)')
+        }
+      })
+
+      //To do: change the next query to a specify instrucion to get the last id 
+
+      let query = `
       SELECT id_oficina FROM oficinas
       WHERE id_oficina =(SELECT MAX(id_oficina) FROM oficinas)
     `
-    db.query(query, function (err, result) {
-      if (err)
-        throw err
-      else {
-  
-        console.log(result)
 
-        let id = parseInt(result[0]['id_oficina']) + 1
+      db.query(query, function (err, result) {
+        if (err)
+          throw err
+        else {
 
-        console.log( )
-        
-        
-        const queryOficinas_bienRaiz = `
+          let id = parseInt(result[0]['id_oficina'])
+
+          const queryOficinas_bienRaiz = `
         INSERT INTO bienes_raices (ubicacion, precio, superficie, contruccion, caracteristicas, status, cod_departamento, cod_bodega, cod_casa, cod_terreno, cod_oficina, cod_compra) VALUES
-        ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', ${parseInt(result[0]['id_oficina']) + 1}, 1, 1, 1, 1, 1);
+        ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', 1, 1, 1, 1, ${parseInt(result[0]['id_oficina'])}, 1);
         `
-        console.log(queryOficinas_bienRaiz)
-      
-        const queryOficinas = `
-        INSERT INTO oficinas (num_bano, recepcion, estacionamiento) VALUES
-        ('${noBanos}', '${recepcion}', '${estacionamiento}');
-        `
-        db.query(queryOficinas_bienRaiz, function (err, result) {
-          if (err)
-            throw err
-          else {
-            console.log('One record inserted(En tabla bienes_raices)')
-          }
-        })
-  
-        db.query(queryOficinas, function (err, result) {
-          if (err)
-            throw err
-          else {
-            console.log('One record inserted(En tabla bienes_raices)')
-          }
-        })
-        
-      }
-    })
+          console.log(queryOficinas_bienRaiz)
+
+
+          db.query(queryOficinas_bienRaiz, function (err, result) {
+            if (err)
+              throw err
+            else {
+              console.log('One record inserted(En tabla bienes_raices)')
+            }
+          })
+
+
+
+        }
+      })
       break
 
     case 'div2':
+      const capacidadCochera = req.body.cochera
+      console.log(capacidadCochera)
+      const numVestidor = req.body.vestidor
+      console.log(numVestidor)
+      const numRecamaras = req.body.recamara
+      console.log(numRecamaras)
+      const num = req.body.bano
+      const numBano = num[1]
+      console.log(numBano)
+      const cuartoServicio = req.body.servicio
+      console.log(cuartoServicio)
+      const numSalastv = req.body.tv
+      console.log(numSalastv)
+      const jardin = req.body.Jardin
+      console.log(jardin)
+
+      const queryCasa = `
+      INSERT INTO casas (capacidad_cochera, num_vestidor, num_recamara, num_bano, cuarto_servicio, num_sala_tv, jardin) VALUES
+      ('${capacidadCochera}', '${numVestidor}', '${numRecamaras}', '${numBano}', '${cuartoServicio}', '${numSalastv} , '${jardin});
+      `
+      db.query(queryCasa, function (err, result) {
+        if (err)
+          throw err
+        else {
+          console.log('One record inserted(En tabla casas)')
+        }
+      })
+
+      query = `
+      SELECT id_casa FROM casas
+      WHERE id_casa =(SELECT MAX(id_casa) FROM casas)
+      `
+
+      db.query(query, function (err, result) {
+        if (err)
+          throw err
+        else {
+
+          let id = parseInt(result[0]['id_casa'])
+
+          const querycasas_bienRaiz = `
+          INSERT INTO bienes_raices (ubicacion, precio, superficie, contruccion, caracteristicas, status, cod_departamento, cod_bodega, cod_casa, cod_terreno, cod_casas, cod_compra) VALUES
+          ('${ubicacion}', '${precio}', '${superficie}', '${construccion}', '${caracteristicas}', '${status}', 1, 1, 1, 1, ${parseInt(result[0]['id_oficina'])}, 1);
+          `
+          console.log(queryOficinas_bienRaiz)
+
+
+          db.query(queryOficinas_bienRaiz, function (err, result) {
+            if (err)
+              throw err
+            else {
+              console.log('One record inserted(En tabla bienes_raices)')
+            }
+          })
+        }
+      })
 
       break
 
