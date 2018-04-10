@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 
+app.use(fileUpload())
 // sete satatic path
 
 
@@ -174,22 +175,117 @@ app.post('/login', function (req, res) {
 app.post('/opcionABC', function (req, res) {
   const ABC = req.body.select
   console.log(ABC)
-  res.render(ABC)
 
+
+  if (ABC == 'bajas') {
+    const queryBajas = `
+      SELECT * 
+      FROM bienes_raices
+    `
+    db.query(queryBajas, function (err, result) {
+      if (err)
+        throw err
+      else {
+        let toHtml = result
+        res.render(ABC, {
+          data: toHtml
+        })
+      }
+    })
+  }
+  else {
+    res.render(ABC)
+  }
 })
 
-app.get('/bajas', function (req, res) {
-  const queryBajas = `
-    SELECT * 
+
+const porEliminar = []
+
+app.post('/bajas', function (req, res) {
+  const ID = req.body.id
+
+  const queryCodigos = `
+    SELECT  cod_departamento , cod_bodega , cod_casa , cod_terreno , cod_oficina 
     FROM bienes_raices
+    WHERE id_bien_raiz = ${ID}
+
+
   `
-  db.query(queryBajas, function (err, result) {
+  console.log(queryCodigos)
+  let deleteBien
+  let queryDelete
+
+  deleteBien = `
+  DELETE FROM bienes_raices WHERE bienes_raices.id_bien_raiz = ${ID};
+  `
+  console.log(deleteBien)
+
+
+
+
+  db.query(queryCodigos, function (err, result) {
     if (err)
       throw err
     else {
-      console.log(result)
+
+      let obj = result
+      console.log(obj[0]['cod_departamento'])
+
+      console.log(obj)
+
+
+      if (obj[0]['cod_departamento'] != 1) {
+
+        queryDelete = `
+          DELETE FROM departamentos WHERE departamentos.id_departamento = ${obj[0]['cod_departamento']};
+        `
+      }
+
+      if (obj[0]['cod_bodega'] != 1) {
+        queryDelete = `
+          DELETE FROM bodegas WHERE bodegas.id_bodega = ${obj[0]['cod_bodega']};
+        `
+      }
+
+      if (obj[0]['cod_casa'] != 1) {
+        queryDelete = `
+          DELETE FROM casas WHERE casas.id_casa = ${obj[0]['cod_casa']};
+        `
+      }
+
+      if (obj[0]['cod_terreno'] != 1) {
+        queryDelete = `
+          DELETE FROM terrenos WHERE terrenos.id_terreno = ${obj[0]['cod_terreno']};
+        `
+      }
+      if (obj[0]['cod_oficina'] != 1) {
+        queryDelete = `
+          DELETE FROM oficinas WHERE oficinas.id_oficina = ${obj[0]['cod_oficina']};
+        `
+      }
+      console.log('queryDelete: ')
+      console.log(queryDelete)
+        
+      db.query(deleteBien, function (err, result) {
+        if (err)
+          throw err
+        else {
+          console.log('One record deleted: on table bienes_raices')
+        }
+      })
+
+
+      db.query(queryDelete, function (err, result) {
+        if (err)
+          throw err
+        else {
+          console.log('One record deleted: on parent table')
+        }
+      })
+
     }
-  })  
+  })
+
 })
 
 app.post('/altas', function (req, res) {
@@ -201,7 +297,19 @@ app.post('/altas', function (req, res) {
   const caracteristicas = req.body.Caracteristicas
   const status = req.body.Status
 
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.')
 
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files.sampleFile
+
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv('/img.jpg', function (err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!')
+  })
   switch (bien) {
     case 'div1':
       const noBanos = req.body.bano

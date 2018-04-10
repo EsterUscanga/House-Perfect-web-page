@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="/bajas" method="post">
+      <table border="1">
+          <tr>
+            <th>
+              id_bien_raiz
+            </th>
+            <th>
+              Ubicación
+            </th>
+            <th>
+              Precio
+            </th>
+            <th>
+              Superficie
+            </th>
+            <th>
+              Construcción
+            </th>
+            <th>
+              Caractarísticas
+            </th>
+            <th>
+              Departamento
+            </th>
+            <th>
+              Bodega
+            </th>
+            <th>
+              Casa
+            </th>
+            <th>
+              Terreno
+            </th>
+            <th>
+              Oficina
+            </th>
+            <th>
+              Código de Compra
+            </th>
+            <th>
+              Eliminar
+            </th>
+          </tr>
+      
+      
+          <% data.forEach(function(field){ %>
+            <tr>
+              <td>
+                <%= field['id_bien_raiz'] %>
+              </td>
+              <td>
+                <%= field.ubicacion %>
+              </td>
+              <td>
+                <%= field.Superficie %>
+              </td>
+              <td>
+                <%= field.construccion %>
+              </td>
+              <td>
+                <%= field.caracteristicas%>
+              </td>
+              <td>
+                <%= field.status%>
+              </td>
+              <td>
+                <% if(field['cod_departamento'] != 1){%>
+                  X
+                <%}%>
+              </td>
+              <td>
+                <% if(field['cod_bodega'] != 1){%>
+                  X
+                <%}%>
+              </td>
+              <td>
+                <% if(field['cod_casa'] != 1){%>
+                  X
+                <%}%>
+              </td>
+              <td>
+                <% if(field['cod_terreno'] != 1){%>
+                    X
+                <%}%>
+              </td>
+              <td>
+                <% if(field['cod_oficina'] != 1){%>
+                  X
+                <%}%>
+              </td>  
+              <td>
+                <% if(field['cod_compra'] != 1){%>
+                  X
+                <%}%>
+              </td>  
+              <td>
+                <input type="checkbox" name="hola">
+              </td>
+            </tr>
+          <%})%>
+      
+        </table>  
+        <br><br><br>
+        Id que se desea eliminar: 
+        <input type="text" name="id">
+        <br><br><br>
+        <input type="submit" value="Enviar">
+  </form>
+  
+</body>
+
+</html>
