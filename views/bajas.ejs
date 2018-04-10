@@ -31,6 +31,9 @@
               Caractarísticas
             </th>
             <th>
+              Status
+            </th>
+            <th>
               Departamento
             </th>
             <th>
@@ -48,9 +51,6 @@
             <th>
               Código de Compra
             </th>
-            <th>
-              Eliminar
-            </th>
           </tr>
       
       
@@ -63,10 +63,13 @@
                 <%= field.ubicacion %>
               </td>
               <td>
-                <%= field.Superficie %>
+                <%= field.precio %>
               </td>
               <td>
-                <%= field.construccion %>
+                <%= field.superficie %>
+              </td>
+              <td>
+                <%= field.contruccion %>
               </td>
               <td>
                 <%= field.caracteristicas%>
@@ -104,9 +107,6 @@
                   X
                 <%}%>
               </td>  
-              <td>
-                <input type="checkbox" name="hola">
-              </td>
             </tr>
           <%})%>
       

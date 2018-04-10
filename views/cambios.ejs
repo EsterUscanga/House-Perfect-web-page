@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="/cambios" method="post">
+      <table border="1">
+        <tr>
+          <th>
+            id_casa
+          </th>
+          <th>
+            Capacidad cochera
+          </th>
+          <th>
+            Número de vestidores
+          </th>
+          <th>
+            Número de recamaras
+          </th>
+          <th>
+            Número de banos
+          </th>
+          <th>
+            Cuarto de Servicio
+          </th>
+          <th>
+            Numero de sals de TV
+          </th>
+          <th>
+            Jardin
+          </th>
+        </tr>
+        
+        <% data.forEach(function(field){ %>
+          <tr>
+            <td>
+              <%= field['id_casa'] %>
+            </td>
+            <td>
+              <%= field['capacidad_cochera'] %>
+            </td>
+            <td>
+              <%= field['num_vestidor'] %> 
+            </td>
+            <td>
+              <%= field['num_recamara'] %>
+            </td>
+            <td>
+              <%= field['num_bano']%>
+            </td>
+            <td>
+              <%= field['cuarto_servicio'] %>
+            </td>
+            <td>
+              <%= field['num_sala_tv'] %>
+            </td>
+            <td>
+              <%= field['jardin'] %>
+            </td>
+          </tr>
+        <%})%>
+      </table>  
+      <br><br><br>
+      Id que se modificar: 
+      <input type="text" name="id">
+      <br><br><br>
+      <input type="submit" value="Enviar">
+  </form>
+  
+</body>
+
+</html>

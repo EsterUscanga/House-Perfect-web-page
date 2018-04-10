@@ -193,7 +193,24 @@ app.post('/opcionABC', function (req, res) {
       }
     })
   }
-  else {
+  if (ABC == 'cambios') {
+    const queryCambios = `
+     SELECT * 
+     FROM casas
+    `
+    db.query(queryCambios, function (err, result) {
+      if (err)
+        throw err
+      else {
+        let toHtml = result
+        res.render(ABC, {
+          data: toHtml
+        })
+      }
+    })
+
+  }
+  if (ABC == 'altas') {
     res.render(ABC)
   }
 })
@@ -265,7 +282,7 @@ app.post('/bajas', function (req, res) {
       }
       console.log('queryDelete: ')
       console.log(queryDelete)
-        
+
       db.query(deleteBien, function (err, result) {
         if (err)
           throw err
@@ -296,7 +313,7 @@ app.post('/altas', function (req, res) {
   const construccion = req.body.Construccion
   const caracteristicas = req.body.Caracteristicas
   const status = req.body.Status
-
+  /*
   if (!req.files)
     return res.status(400).send('No files were uploaded.')
 
@@ -309,7 +326,7 @@ app.post('/altas', function (req, res) {
       return res.status(500).send(err);
 
     res.send('File uploaded!')
-  })
+  })*/
   switch (bien) {
     case 'div1':
       const noBanos = req.body.bano
@@ -444,7 +461,206 @@ app.post('/altas', function (req, res) {
 
 })
 
+let ID
+app.post('/cambios', function (req, res) {
+  ID = req.body.id
+  const queryCodigos = `
+  SELECT *
+  FROM casas
+  WHERE id_casa = ${ID}
+  `
+  const queryBien = `
+  SELECT *
+  FROM bienes_raices
+  WHERE cod_casa = ${ID}
+  `
 
+  db.query(queryBien, function (err, result) {
+    if (err)
+      throw err
+    else {
+      let bien = result
+      db.query(queryCodigos, function (err, result) {
+        if (err)
+          throw err
+        else {
+          let toHtml = result
+          res.render('uploadChanges', {
+            data: toHtml,
+            data2: bien,
+            id : ID
+          })
+        }
+      })
+    }
+  })
+
+})
+
+app.post('/uploadChanges', function(req, res){
+  let array = []
+
+  ID = req.body.id
+  
+  let queryUpdateBienes
+
+  const ubicacion = req.body.Ubicacion
+  if (ubicacion.length != 0) {
+    array.push(ubicacion)
+    queryUpdateBienes = `
+    UPDATE bienes_raices
+    SET ubicacion = '${ubicacion}'
+    WHERE cod_casa = '${ID}';
+    `
+  }
+  const precio = req.body.Precio
+  if (precio.length != 0) {
+    array.push(precio)
+    queryUpdateBienes = `
+    ${queryUpdateBienes}
+    UPDATE bienes_raices
+    SET precio = '${precio}'
+    WHERE cod_casa = '${ID}';
+    `
+  }  
+
+  const superficie = req.body.Superficie
+  
+  if (superficie.length != 0){
+    queryUpdateBienes = `
+    ${queryUpdateBienes}
+    UPDATE bienes_raices
+    SET superficie = '${superficie}'
+    WHERE cod_casa = '${ID}';
+    `
+  } 
+  const construccion = req.body.Construccion
+  if (construccion.length != 0){
+    queryUpdateBienes = `
+    ${queryUpdateBienes}
+    UPDATE bienes_raices
+    SET contruccion = '${construccion}'
+    WHERE cod_casa = '${ID}';
+    `
+  }
+  const caracteristicas = req.body.Caracteristicas
+  if (caracteristicas.length != 0) {
+    queryUpdateBienes = `
+    ${queryUpdateBienes}
+    UPDATE bienes_raices
+    SET caracteristicas = '${caracteristicas}'
+    WHERE cod_casa = '${ID}';
+    `
+  }
+  const status = req.body.Status
+  if (status != undefined){
+    queryUpdateBienes = `
+    ${queryUpdateBienes}
+    UPDATE bienes_raices
+    SET status = '${status}'
+    WHERE cod_casa = '${ID}';
+    `
+  }
+
+  console.log(queryUpdateBienes)
+
+  
+
+  let queryUpdateCasas 
+
+  const capacidadCochera = req.body.cochera 
+  if (capacidadCochera.length != 0){
+    queryUpdateCasas = `
+    UPDATE casas
+    SET capacidad_cochera = '${capacidadCochera}'
+    WHERE id_casa = '${ID}';
+    `
+  } 
+  
+  const numVestidor = req.body.vestidor
+  if (numVestidor.length != 0){
+    queryUpdateCasas = `
+    UPDATE casas
+    SET capacidad_cochera = '${numVestidor}'   
+    WHERE id_casa = '${ID}';
+    `
+  } 
+
+  const numRecamaras = req.body.recamara
+  if (numRecamaras.length != 0){
+    queryUpdateCasas = `
+    ${queryUpdateCasas}
+    UPDATE casas
+    SET num_recamara = '${numRecamaras}'   
+    WHERE id_casa = '${ID}';
+    `
+  } 
+
+  const num = req.body.bano
+  if (num.length != 0){
+    queryUpdateCasas = `
+    ${queryUpdateCasas}
+    UPDATE casas
+    SET num_bano = '${num}'   
+    WHERE id_casa = '${ID}';
+    `
+  } 
+ 
+  const cuartoServicio = req.body.servicio
+  if (cuartoServicio != undefined){
+    queryUpdateCasas = `
+    ${queryUpdateCasas}
+    UPDATE casas
+    SET cuarto_servicio = '${cuartoServicio}'   
+    WHERE id_casa = '${ID}';
+    `
+  } 
+ 
+  const numSalastv = req.body.tv
+  if (numSalastv.length != 0){
+    queryUpdateCasas = `
+    ${queryUpdateCasas}
+    UPDATE casas
+    SET num_sala_tv = '${numSalastv}'   
+    WHERE id_casa = '${ID}';
+    `
+  } 
+
+  const jardin = req.body.Jardin
+  if (jardin != undefined){
+    queryUpdateCasas = `
+    ${queryUpdateCasas}
+    UPDATE casas
+    SET jardin = '${jardin}'   
+    WHERE id_casa = '${ID}';
+    `
+  } 
+
+  console.log(queryUpdateBienes)
+  console.log(queryUpdateCasas)
+  
+
+  if(queryUpdateBienes != undefined){
+    db.query(queryUpdateBienes, function (err, result) {
+      if (err)
+        throw err
+      else {
+        console.log('One record update on bienes_raices')
+      }
+    })
+  }
+
+  if(queryUpdateCasas != undefined){
+    db.query(queryUpdateCasas, function (err, result) {
+      if (err)
+        throw err
+      else {
+        console.log('One record update on casas')
+      }
+    })
+  }
+  
+})
 
 app.listen(port, function () {
   console.log(messagePort)

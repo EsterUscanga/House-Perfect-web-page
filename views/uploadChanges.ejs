@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <table border="1">
+    <tr>
+      <th>
+        id_casa
+      </th>
+      <th>
+        Capacidad cochera
+      </th>
+      <th>
+        Número de vestidores
+      </th>
+      <th>
+        Número de recamaras
+      </th>
+      <th>
+        Número de banos
+      </th>
+      <th>
+        Cuarto de Servicio
+      </th>
+      <th>
+        Numero de sals de TV
+      </th>
+      <th>
+        Jardin
+      </th>
+    </tr>
+
+    <% data.forEach(function(field){ %>
+      <tr>
+        <td>
+          <%= field['id_casa'] %>
+        </td>
+        <td>
+          <%= field['capacidad_cochera'] %>
+        </td>
+        <td>
+          <%= field['num_vestidor'] %>
+        </td>
+        <td>
+          <%= field['num_recamara'] %>
+        </td>
+        <td>
+          <%= field['num_bano']%>
+        </td>
+        <td>
+          <%= field['cuarto_servicio'] %>
+        </td>
+        <td>
+          <%= field['num_sala_tv'] %>
+        </td>
+        <td>
+          <%= field['jardin'] %>
+        </td>
+      </tr>
+      <%})%>
+  </table>
+  <br>
+  <br>
+  <br>
+  <table border="1">
+    <tr>
+      <th>
+        id_bien_raiz
+      </th>
+      <th>
+        Ubicación
+      </th>
+      <th>
+        Precio
+      </th>
+      <th>
+        Superficie
+      </th>
+      <th>
+        Construcción
+      </th>
+      <th>
+        Caractarísticas
+      </th>
+      <th>
+        Status
+      </th>
+      <th>
+        Departamento
+      </th>
+      <th>
+        Bodega
+      </th>
+      <th>
+        Casa
+      </th>
+      <th>
+        Terreno
+      </th>
+      <th>
+        Oficina
+      </th>
+      <th>
+        Código de Compra
+      </th>
+    </tr>
+
+
+    <% data2.forEach(function(field){ %>
+      <tr>
+        <td>
+          <%= field['id_bien_raiz'] %>
+        </td>
+        <td>
+          <%= field.ubicacion %>
+        </td>
+        <td>
+          <%= field.precio %>
+        </td>
+        <td>
+          <%= field.superficie %>
+        </td>
+        <td>
+          <%= field.contruccion %>
+        </td>
+        <td>
+          <%= field.caracteristicas%>
+        </td>
+        <td>
+          <%= field.status%>
+        </td>
+        <td>
+          <% if(field['cod_departamento'] != 1){%>
+            X
+            <%}%>
+        </td>
+        <td>
+          <% if(field['cod_bodega'] != 1){%>
+            X
+            <%}%>
+        </td>
+        <td>
+          <% if(field['cod_casa'] != 1){%>
+            X
+            <%}%>
+        </td>
+        <td>
+          <% if(field['cod_terreno'] != 1){%>
+            X
+            <%}%>
+        </td>
+        <td>
+          <% if(field['cod_oficina'] != 1){%>
+            X
+            <%}%>
+        </td>
+        <td>
+          <% if(field['cod_compra'] != 1){%>
+            X
+            <%}%>
+        </td>
+      </tr>
+      <%})%>
+
+  </table>
+
+
+  <form action="/uploadChanges" method="post">
+    <br> ID:
+    <br>
+    <input type="text" name="id" readonly id="" value=<%= id %>>
+    <br> Ubicación:
+		<br>
+		<input type="text" name="Ubicacion" id="Ubicacion">
+		<br> Precio:
+		<br>
+		<input type="text" name="Precio" id="Precio">
+		<br> Superficie:
+		<br>
+		<input type="text" name="Superficie" id="Superficie">
+		<br> Construccion:
+		<br>
+		<input type="text" name="Construccion" id="Construccion">
+		<br> Caracteristicas:
+		<br>
+		<input type="text" name="Caracteristicas" id="Caracteristicas">
+		<br>
+		<label for="Status">Status: </label>
+		<input type="radio" name="Status" value="Venta"> Venta
+		<input type="radio" name="Status" value="Renta"> Renta
+		<br>
+		<br>
+    <br>
+    Capacidad cochera:
+    <br>
+    <input type="text" name="cochera" id="capacidad_cochera">
+    <br> Numero de vestidores:
+    <br>
+    <input type="text" name="vestidor" id="num_vestidor">
+    <br> Numero de recamaras:
+    <br>
+    <input type="text" name="recamara" id="num_recamara">
+    <br> Numero de baños:
+    <br>
+    <input type="text" name="bano" id="Num_bano">
+    <br>
+    <label for="Cuarto_servicio">Cuarto de servicio: </label>
+    <input type="radio" name="servicio" value="si"> Sí
+    <input type="radio" name="servicio" value="no"> No
+    <br> Numero de salas de TV:
+    <br>
+    <input type="text" name="tv" id="Num_sala_tv">
+    <br>
+    <label for="Jardin">Jardín: </label>
+    <input type="radio" name="Jardin" value="si"> Sí
+    <input type="radio" name="Jardin" value="no"> No
+    <br>
+  </div>
+    <input type="submit" value="Enviar">
+
+  </form>
+
+</body>
+
+</html>
